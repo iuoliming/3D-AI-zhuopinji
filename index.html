@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黎铭 - 24年跨领域三维设计经验，擅长家具3D可视化、建筑动画、Blender几何节点程序化建模、工业安全事故3D模拟">
+    <meta name="keywords" content="三维设计,3D可视化,家具设计,建筑动画,Blender,几何节点,安全事故模拟">
+    <meta name="author" content="黎铭">
+    
+    <!-- Open Graph / 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="黎铭 - 三维设计作品集">
+    <meta property="og:description" content="24年跨领域三维设计经验，家具3D可视化 / 建筑动画 / Blender几何节点 / 工业安全事故模拟">
+    <meta property="og:image" content="assets/images/furniture_1.jpg">
+    <meta property="og:url" content="">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="黎铭 - 三维设计作品集">
+    <meta name="twitter:description" content="24年跨领域三维设计经验，家具3D可视化 / 建筑动画 / Blender几何节点">
+    <meta name="twitter:image" content="assets/images/furniture_1.jpg">
+    <title>黎铭 - 三维设计作品集</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e94560;
+            --accent2: #0f3460;
+            --light: #f5f5f5;
+            --gold: #c9a96e;
+            --dark-bg: #16213e;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--primary);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 60px 20px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(233,69,96,0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(15,52,96,0.2) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .hero-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            margin-bottom: 30px;
+            object-fit: cover;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(233,69,96,0.3);
+        }
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fff 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .hero .tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+        
+        .hero .tag {
+            padding: 8px 20px;
+            border: 1px solid rgba(201,169,110,0.5);
+            border-radius: 25px;
+            font-size: 0.85em;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .hero .contact-info {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9em;
+            line-height: 2;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8em;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        /* ===== Section Common ===== */
+        .section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .section-subtitle {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95em;
+            margin-top: 15px;
+            margin-bottom: 50px;
+        }
+        
+        /* ===== Skills Section ===== */
+        .skills-section {
+            background: var(--dark-bg);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(233,69,96,0.15);
+        }
+        
+        .skill-card .icon {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: var(--gold);
+        }
+        
+        .skill-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+        
+        .skill-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .skill-tools span {
+            padding: 4px 12px;
+            background: rgba(233,69,96,0.15);
+            border-radius: 12px;
+            font-size: 0.75em;
+            color: var(--accent);
+        }
+        
+        /* ===== Portfolio Section ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .portfolio-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        
+        .portfolio-media {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(15,52,96,0.5), rgba(26,26,46,0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .portfolio-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-media .placeholder {
+            text-align: center;
+            color: rgba(255,255,255,0.3);
+        }
+        
+        .portfolio-media .placeholder .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-media .placeholder p {
+            font-size: 0.85em;
+        }
+        
+        .portfolio-info {
+            padding: 30px;
+        }
+        
+        .portfolio-info .category {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(233,69,96,0.15);
+            color: var(--accent);
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-bottom: 12px;
+        }
+        
+        .portfolio-info h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .portfolio-info .time {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85em;
+            margin-bottom: 12px;
+        }
+        
+        .portfolio-info .desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-info .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .portfolio-info .tech-stack span {
+            padding: 4px 12px;
+            border: 1px solid rgba(201,169,110,0.3);
+            border-radius: 12px;
+            font-size: 0.75em;
+            color: var(--gold);
+        }
+        
+        /* ===== Video Section ===== */
+        .video-section {
+            background: var(--dark-bg);
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .video-item:hover {
+            border-color: var(--accent);
+        }
+        
+        .video-item .video-title {
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .video-item .video-title h4 {
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        .video-item .video-title p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85em;
+        }
+        
+        /* ===== Taobao Detail Section ===== */
+        .taobao-section {
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #0f1a2e 100%);
+        }
+
+        .taobao-carousel-wrap {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .taobao-carousel-outer {
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .taobao-carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .taobao-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            padding: 30px;
+            gap: 40px;
+        }
+
+        .taobao-phone-frame {
+            width: 300px;
+            height: 540px;
+            background: #000;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.1);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .taobao-phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 24px;
+            background: #000;
+            border-radius: 0 0 16px 16px;
+            z-index: 10;
+        }
+
+        .taobao-phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 26px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(233,69,96,0.5) transparent;
+        }
+
+        .taobao-phone-screen::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .taobao-phone-screen::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .taobao-phone-screen::-webkit-scrollbar-thumb {
+            background: rgba(233,69,96,0.5);
+            border-radius: 2px;
+        }
+
+        .taobao-detail-img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .taobao-slide-info {
+            flex: 1;
+            max-width: 400px;
+            color: #fff;
+        }
+
+        .taobao-slide-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(233,69,96,0.2);
+            border: 1px solid rgba(233,69,96,0.4);
+            border-radius: 20px;
+            color: #e94560;
+            font-size: 0.85em;
+            margin-bottom: 16px;
+        }
+
+        .taobao-slide-info h3 {
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff, #c9a96e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .taobao-slide-info p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .taobao-feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .taobao-feature-list li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .taobao-feature-list li::before {
+            content: '\2713';
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .taobao-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.6);
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .taobao-carousel-btn:hover {
+            background: rgba(233,69,96,0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .taobao-carousel-btn.prev {
+            left: 20px;
+        }
+
+        .taobao-carousel-btn.next {
+            right: 20px;
+        }
+
+        .taobao-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .taobao-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .taobao-dots span.active {
+            width: 30px;
+            border-radius: 5px;
+            background: #e94560;
+        }
+
+        .taobao-scroll-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7em;
+            color: rgba(255,255,255,0.5);
+            animation: bounce 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        /* ===== Links Section ===== */
+        .links-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(15,52,96,0.3), rgba(26,26,46,0.5));
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .links-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+        }
+        
+        .links-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border: 1px solid rgba(201,169,110,0.5);
+            border-radius: 30px;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+        
+        .link-btn:hover {
+            background: rgba(201,169,110,0.1);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201,169,110,0.2);
+        }
+        
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.85em;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; letter-spacing: 4px; }
+            .hero .subtitle { font-size: 1em; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .section { padding: 50px 20px; }
+            
+            .taobao-carousel-outer { height: auto; }
+            .taobao-slide {
+                flex-direction: column;
+                padding: 20px 15px;
+                gap: 20px;
+                height: auto;
+                min-height: 700px;
+            }
+            .taobao-phone-frame {
+                width: 220px;
+                height: 400px;
+                border-radius: 28px;
+                padding: 10px;
+            }
+            .taobao-phone-notch {
+                width: 80px;
+                height: 20px;
+                top: 10px;
+            }
+            .taobao-phone-screen { border-radius: 20px; }
+            .taobao-slide-info { max-width: 100%; text-align: center; }
+            .taobao-feature-list li { justify-content: center; }
+            .taobao-carousel-btn { width: 36px; height: 36px; font-size: 18px; }
+            .taobao-carousel-btn.prev { left: 8px; }
+            .taobao-carousel-btn.next { right: 8px; }
+            .taobao-slide-info h3 { font-size: 1.3em; }
+            .taobao-slide-info p { font-size: 0.85em; }
+        }
+        
+        /* ===== Print Styles ===== */
+        @media print {
+            body { background: #fff; color: #333; }
+            .hero { background: #f8f8f8; min-height: auto; padding: 40px; }
+            .hero h1 { -webkit-text-fill-color: #1a1a2e; }
+            .skills-section, .video-section { background: #f5f5f5; }
+            .portfolio-item, .skill-card { border-color: #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar"><img src="assets/images/logo.png" alt="LOGO"></div>
+            <h1>黎铭</h1>
+            <p class="subtitle">三维设计师 · 24年实战经验</p>
+            <div class="tags">
+                <span class="tag">Blender</span>
+                <span class="tag">Cinema 4D</span>
+                <span class="tag">3ds Max</span>
+                <span class="tag">家具设计</span>
+                <span class="tag">产品可视化</span>
+                <span class="tag">建筑动画</span>
+            </div>
+            <p class="contact-info">
+                13145866822 &nbsp;|&nbsp; 2842651083@qq.com &nbsp;|&nbsp; 中山市沙溪
+            </p>
+        </div>
+        <div class="scroll-hint">▼ 向下浏览作品集</div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="skills-section">
+        <div class="section">
+            <h2 class="section-title">核心技能</h2>
+            <p class="section-subtitle">全流程三维设计能力，从概念到交付</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="icon">🏗️</div>
+                    <h3>三维建模与动画</h3>
+                    <p>精通家具产品建模、程序化建模、几何节点系统搭建，可独立完成全流程动画制作</p>
+                    <div class="skill-tools">
+                        <span>Blender</span>
+                        <span>C4D</span>
+                        <span>3ds Max</span>
+                        <span>Geometry Nodes</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="icon">🎨</div>
+                    <h3>渲染与材质</h3>
+                    <p>掌握PBR材质流程，精通多种渲染引擎，输出高品质产品效果图</p>
+                    <div class="skill-tools">
+                        <span>Cycles</span>
+                        <span>Eevee</span>
+                        <span>Octane</span>
+                        <span>Substance Painter</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="icon">🎬</div>
+                    <h3>后期与合成</h3>
+                    <p>从三维渲染到视频输出的完整后期链路，调色、特效、字幕一站式处理</p>
+                    <div class="skill-tools">
+                        <span>After Effects</span>
+                        <span>DaVinci Resolve</span>
+                        <span>Photoshop</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI + 3D 工作流</h3>
+                    <p>运用ComfyUI进行AI图像生成与电商产品图场景融合，前沿技术驱动效率提升</p>
+                    <div class="skill-tools">
+                        <span>ComfyUI</span>
+                        <span>AI图像生成</span>
+                        <span>场景融合</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="icon">👔</div>
+                    <h3>服装与布料模拟</h3>
+                    <p>精通布料仿真与服装建模，家具软包产品可视化呈现</p>
+                    <div class="skill-tools">
+                        <span>Marvelous Designer</span>
+                        <span>Blender Cloth Sim</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="icon">📐</div>
+                    <h3>UV与贴图</h3>
+                    <p>高效UV展开与贴图流程，确保模型材质精准无误</p>
+                    <div class="skill-tools">
+                        <span>RizomUV</span>
+                        <span>Illustrator</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Portfolio ===== -->
+    <section class="section">
+        <h2 class="section-title">项目作品集</h2>
+        <p class="section-subtitle">精选代表性项目，点击图片可替换为作品实拍图</p>
+        
+        <div class="portfolio-grid">
+            
+            <!-- Project 1: 家具产品 -->
+            <div class="portfolio-item">
+                <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                    <div class="carousel-track" id="carousel1" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/furniture_1.jpg" alt="柜子效果图1" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/furniture_2.jpg" alt="柜子效果图2" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/furniture_3.jpg" alt="沙发效果图1" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/furniture_4.jpg" alt="沙发效果图2" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                    </div>
+                    <!-- 左右箭头 -->
+                    <button onclick="carouselPrev('carousel1',4)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                    <button onclick="carouselNext('carousel1',4)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                    <!-- 指示点 -->
+                    <div id="dots1" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                        <span onclick="carouselGo('carousel1','dots1',0,4)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel1','dots1',1,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel1','dots1',2,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel1','dots1',3,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">家具产品设计</span>
+                    <h3>原森木居 · 家具产品3D可视化</h3>
+                    <p class="time">2024.10 - 2026.06</p>
+                    <p class="desc">负责家具产品3D建模与渲染，输出高质量产品效果图及展示动画。涵盖客厅沙发、卧室衣柜等多品类家具，搭建软包生产线3D模型，优化生产流程可视化方案。以下为部分渲染效果图：</p>
+                    <div class="tech-stack">
+                        <span>Blender</span>
+                        <span>Cycles</span>
+                        <span>Substance Painter</span>
+                        <span>ComfyUI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: 几何节点 -->
+            <div class="portfolio-item">
+                <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                    <div class="carousel-track" id="carousel2" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/geonode_1.jpg" alt="门窗生产线" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/geonode_2.jpg" alt="衣柜生产线" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/geonode_3.jpg" alt="坐垫软包生产线" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/geonode_4.jpg" alt="断桥门窗生产线" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                    </div>
+                    <button onclick="carouselPrev('carousel2',4)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                    <button onclick="carouselNext('carousel2',4)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                    <div id="dots2" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                        <span onclick="carouselGo('carousel2','dots2',0,4)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel2','dots2',1,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel2','dots2',2,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel2','dots2',3,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">程序化建模</span>
+                    <h3>软包生产线实时预览系统</h3>
+                    <p class="time">2024.10 - 2026.06</p>
+                    <p class="desc">运用Blender几何节点（Geometry Nodes）技术，搭建家具软包生产线三维可视化系统，实现实时效果图生成与渲染，大幅提升生产可视化效率与展示效果。涵盖门窗、衣柜、坐垫软包、断桥门窗等多品类生产线。</p>
+                    <div class="tech-stack">
+                        <span>Blender</span>
+                        <span>Geometry Nodes</span>
+                        <span>实时渲染</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3: 建筑动画 -->
+            <div class="portfolio-item">
+                <div class="portfolio-media">
+                    <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                        <div class="carousel-track" id="carousel4" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                            <img src="assets/images/arch_1.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="博万久部建筑动画1">
+                            <img src="assets/images/arch_2.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="博万久部建筑动画2">
+                            <img src="assets/images/arch_3.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="博万久部建筑动画3">
+                            <img src="assets/images/arch_4.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="博万久部建筑动画4">
+                        </div>
+                        <button onclick="carouselPrev('carousel4',4)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                        <button onclick="carouselNext('carousel4',4)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                        <div id="dots4" style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                            <span onclick="carouselGo('carousel4','dots4',0,4)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel4','dots4',1,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel4','dots4',2,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel4','dots4',3,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">建筑动画</span>
+                    <h3>博万9部 · 中山马鞍岛项目</h3>
+                    <p class="time">2022.06 - 2022.07</p>
+                    <p class="desc">采用实拍+全景+3D动画演示小区建设施工全过程，覆盖A/B/C区完整施工细节。小区采用新装配模式构建，含叠合板、楼梯、钢筋桁架楼承板等预制构件。负责3D动画部分，模型搭建、场景搭建、材质制作，促成项目落单。</p>
+                    <div class="tech-stack">
+                        <span>Blender</span>
+                        <span>C4D</span>
+                        <span>After Effects</span>
+                        <span>场景搭建</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4: 灯饰 -->
+            <div class="portfolio-item">
+                <div class="portfolio-media">
+                    <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                        <div class="carousel-track" id="carousel5" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                            <img src="assets/images/lighting_1.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="灯饰电商场景图">
+                            <img src="assets/images/lighting_2.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="灯饰产品1">
+                            <img src="assets/images/lighting_3.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="灯饰产品2">
+                            <img src="assets/images/lighting_4.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="灯饰产品3">
+                            <img src="assets/images/lighting_5.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="灯饰产品4">
+                        </div>
+                        <button onclick="carouselPrev('carousel5',5)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                        <button onclick="carouselNext('carousel5',5)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                        <div id="dots5" style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                            <span onclick="carouselGo('carousel5','dots5',0,5)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel5','dots5',1,5)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel5','dots5',2,5)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel5','dots5',3,5)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel5','dots5',4,5)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">灯饰设计</span>
+                    <h3>万晟灯饰 · C4D产品视觉</h3>
+                    <p class="time">2020.03 - 2021.11</p>
+                    <p class="desc">负责灯饰新品研发设计，独立完成3D产品视频制作。从建模到渲染输出全流程把控，提升产品视觉呈现品质，涵盖吊灯、壁灯、台灯等多品类灯饰。</p>
+                    <div class="tech-stack">
+                        <span>Cinema 4D</span>
+                        <span>Octane Render</span>
+                        <span>After Effects</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5: 珠宝 -->
+            <div class="portfolio-item">
+                <div class="portfolio-media">
+                    <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                        <div class="carousel-track" id="carousel6" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                            <img src="assets/images/jewelry_1.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="珠宝作品1">
+                            <img src="assets/images/jewelry_2.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="珠宝作品2">
+                            <img src="assets/images/jewelry_3.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="珠宝作品3">
+                            <img src="assets/images/jewelry_4.jpg" style="min-width:100%; height:100%; object-fit:cover; flex-shrink:0;" alt="珠宝作品4">
+                        </div>
+                        <button onclick="carouselPrev('carousel6',4)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                        <button onclick="carouselNext('carousel6',4)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                        <div id="dots6" style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                            <span onclick="carouselGo('carousel6','dots6',0,4)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel6','dots6',1,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel6','dots6',2,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                            <span onclick="carouselGo('carousel6','dots6',3,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">珠宝工艺</span>
+                    <h3>中盛珠宝 / 甘露集团 · 珠宝起板</h3>
+                    <p class="time">2013.08 - 2019.12</p>
+                    <p class="desc">6年珠宝起板经验，参照设计图精准起制金/银版，完整还原设计意图。深入掌握首饰结构工艺，优化工艺流程有效减少材料损耗，涵盖戒指、项链、手镯、耳饰等全品类。</p>
+                    <div class="tech-stack">
+                        <span>CAD</span>
+                        <span>起版工艺</span>
+                        <span>珠宝结构</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6: 安全事故模拟 -->
+            <div class="portfolio-item">
+                <div class="carousel-outer" style="height:420px; position:relative; overflow:hidden;">
+                    <div class="carousel-track" id="carousel3" style="display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);">
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/safety_1.jpg" alt="安全事故模拟1" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/safety_2.jpg" alt="安全事故模拟2" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/safety_3.jpg" alt="安全事故模拟3" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                        <div style="min-width:100%; height:100%;"><img src="assets/images/safety_4.jpg" alt="安全事故模拟4" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                    </div>
+                    <button onclick="carouselPrev('carousel3',4)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">‹</button>
+                    <button onclick="carouselNext('carousel3',4)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;transition:background 0.3s;" onmouseover="this.style.background='rgba(233,69,96,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.6)'">›</button>
+                    <div id="dots3" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;">
+                        <span onclick="carouselGo('carousel3','dots3',0,4)" style="width:22px;height:8px;border-radius:4px;background:#e94560;cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel3','dots3',1,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel3','dots3',2,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                        <span onclick="carouselGo('carousel3','dots3',3,4)" style="width:8px;height:8px;border-radius:4px;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;"></span>
+                    </div>
+                </div>
+                <div class="portfolio-info">
+                    <span class="category">自由职业项目</span>
+                    <h3>建筑动画 · 安全事故3D模拟</h3>
+                    <p class="time">2022.01 - 2024.09</p>
+                    <p class="desc">独立完成多个建筑动画、安全事故模拟3D可视化项目。深入学习Blender全流程，掌握几何节点、程序化建模、Cycles渲染，探索AI+3D融合工作流，为安全教育培训提供逼真的事故场景还原。</p>
+                    <div class="tech-stack">
+                        <span>Blender</span>
+                        <span>Cycles</span>
+                        <span>物理模拟</span>
+                        <span>ComfyUI</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ===== Video Section ===== -->
+    <section class="video-section">
+        <div class="section">
+            <h2 class="section-title">视频作品</h2>
+            <p class="section-subtitle">更多作品视频请访问B站主页</p>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <a href="https://www.bilibili.com/video/BV1vwrQBMEkX/" target="_blank" style="display:block; position:relative; height:280px; overflow:hidden; text-decoration:none; border-radius:8px 8px 0 0;">
+                        <img src="assets/images/bilibili_cover.jpg" style="width:100%; height:100%; object-fit:cover; display:block;" alt="B站作品合集">
+                        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; transition:background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.5)'" onmouseout="this.style.background='rgba(0,0,0,0.3)'">
+                            <div style="width:70px; height:70px; border-radius:50%; background:rgba(233,69,96,0.9); display:flex; align-items:center; justify-content:center; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                <span style="color:#fff; font-size:28px; margin-left:5px;">▶</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="video-title">
+                        <h4>📺 B站作品合集</h4>
+                        <p>访问主页查看更多三维设计作品视频 → <a href="https://space.bilibili.com/628350187?spm_id_from=333.1007.0.0" target="_blank" style="color:var(--accent);">space.bilibili.com/628350187</a></p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <video controls style="width:100%; height:280px; object-fit:cover; display:block; background:#000;" poster="">
+                        <source src="assets/video/lighting_install.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                    <div class="video-title">
+                        <h4>📹 灯饰产品安装视频展示</h4>
+                        <p>灯饰产品3D安装演示动画</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Taobao Detail Page Design ===== -->
+    <section class="section taobao-section">
+        <h2 class="section-title">灯饰详情页设计</h2>
+        <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 0.95em;">3D产品建模 × 电商视觉设计，三款灯饰差异化详情页排版方案</p>
+        
+        <div class="taobao-carousel-wrap">
+            <div class="taobao-carousel-outer">
+                <div class="taobao-carousel-track" id="taobaoCarousel">
+                    <!-- Slide 1: 尺寸功能款 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreen1">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_hero.png" alt="主视觉">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_features.png" alt="核心功能">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_dimensions.png" alt="产品尺寸">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_multi_angle.png" alt="多角度展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_display_closeup.png" alt="显示屏特写">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_control_panel.png" alt="控制面板">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_airflow.png" alt="气流循环">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_filter_diagram.png" alt="过滤系统">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_lifestyle_living.png" alt="客厅场景">
+                                <img class="taobao-detail-img" src="assets/images/taobao_dimensions/taobao_lifestyle_bedroom.png" alt="卧室场景">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">尺寸功能款</span>
+                            <h3>参数化详情页排版</h3>
+                            <p>以产品尺寸和功能参数为核心卖点，采用理性化视觉叙事。从主视觉切入，逐层展示功能特性、规格参数、结构细节，最后回归生活场景，形成完整的购买决策路径。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>功能参数视觉化呈现</li>
+                                <li>精准尺寸标注展示</li>
+                                <li>多场景生活方式植入</li>
+                                <li>科技感视觉语言</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: 结构效果款 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreen2">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_hero_001.png" alt="主视觉">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_features_001.png" alt="核心卖点">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_structure_diagram.png" alt="结构解析">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_dimensions_001.png" alt="产品尺寸">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_multi_angle_001.png" alt="多角度展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_effect_demo.png" alt="效果演示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_light_effect.png" alt="灯光效果">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_safety.png" alt="安全保障">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_lifestyle_garden.png" alt="花园场景">
+                                <img class="taobao-detail-img" src="assets/images/taobao_structure/taobao_lifestyle_patio.png" alt="庭院场景">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">结构效果款</span>
+                            <h3>沉浸式详情页排版</h3>
+                            <p>以产品结构和视觉效果为核心驱动，采用场景化叙事手法。从震撼主视觉入手，通过结构解剖、效果对比、安全认证层层递进，最终融入户外庭院场景，营造高品质生活氛围。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>内部结构透视图解</li>
+                                <li>灯光效果动态展示</li>
+                                <li>安全认证信任背书</li>
+                                <li>户外场景氛围感</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: 花朵台灯款 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreen3">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/01_首屏主图.png" alt="首屏主图">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/02_核心卖点.png" alt="核心卖点">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/03_三色调光.png" alt="三色调光">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/04_柔和护眼.png" alt="柔和护眼">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/05_花朵造型设计.png" alt="花朵造型设计">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/06_触摸感应开关.png" alt="触摸感应开关">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/07_节能省电.png" alt="节能省电">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/08_产品尺寸.png" alt="产品尺寸">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/09_产品细节.png" alt="产品细节">
+                                <img class="taobao-detail-img" src="assets/images/taobao_flower_lamp/10_多场景适用.png" alt="多场景适用">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">花朵台灯款</span>
+                            <h3>轻奢氛围详情页排版</h3>
+                            <p>以花朵造型台灯为载体，采用温馨治愈系视觉语言。从向阳而生的主视觉切入，逐层展示三色调光、护眼光源、花朵造型、触摸交互、节能省电等核心卖点，以家居场景营造温暖生活美学氛围。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>温馨治愈系视觉风格</li>
+                                <li>花瓣造型艺术化呈现</li>
+                                <li>三色调光动态对比</li>
+                                <li>多场景生活氛围植入</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="taobao-carousel-btn prev" onclick="taobaoCarouselPrev()">&#8249;</button>
+                <button class="taobao-carousel-btn next" onclick="taobaoCarouselNext()">&#8250;</button>
+            </div>
+            
+            <div class="taobao-dots" id="taobaoDots">
+                <span class="active" onclick="taobaoCarouselGo(0)"></span>
+                <span onclick="taobaoCarouselGo(1)"></span>
+                <span onclick="taobaoCarouselGo(2)"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== Clothing Detail Page Design ===== -->
+    <section class="section taobao-section">
+        <h2 class="section-title">服装详情页设计</h2>
+        <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 0.95em;">儿童服饰 × 生活方式视觉，元气少女穿搭详情页设计</p>
+        
+        <div class="taobao-carousel-wrap">
+            <div class="taobao-carousel-outer">
+                <div class="taobao-carousel-track" id="clothingCarousel" style="grid-template-columns: 1fr;">
+                    <!-- Slide 1: 橙意元气套装 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreenClothing1">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/01_正面展示.png" alt="正面展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/02_平铺展示.png" alt="平铺展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/03_背面展示.png" alt="背面展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/04_面料解析.png" alt="面料解析">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/05_领口细节.png" alt="领口细节">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/06_口袋细节.png" alt="口袋细节">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/07_裙摆细节.png" alt="裙摆细节">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/08_腰头细节.png" alt="腰头细节">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/09_场合展示.png" alt="场合展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing/10_尺码建议.png" alt="尺码建议">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">元气套装款</span>
+                            <h3>治愈系详情页排版</h3>
+                            <p>以儿童橙意元气套装为载体，采用温暖治愈系视觉风格。从正面/平铺/背面多角度展示切入，通过面料解析、领口口袋细节、百褶裙摆、松紧腰头等设计亮点层层递进，最后以多场景穿搭和精准尺码表收束，构建完整的童装购买决策链路。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>温暖治愈系视觉风格</li>
+                                <li>多角度产品展示</li>
+                                <li>面料与细节特写呈现</li>
+                                <li>多场景生活方式植入</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Links ===== -->
+    <section class="links-section">
+        <h2>在线作品集</h2>
+        <div class="links-group">
+            <a href="https://space.bilibili.com/628350187?spm_id_from=333.1007.0.0" target="_blank" class="link-btn">
+                📺 哔哩哔哩主页
+            </a>
+            <a href="https://www.zcool.com.cn/u/22639351" target="_blank" class="link-btn">
+                🎨 站酷主页
+            </a>
+            <a href="mailto:2842651083@qq.com" class="link-btn">
+                ✉️ 联系我
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <div class="footer">
+        <p>黎铭 · 三维设计作品集 · 2026</p>
+        <p style="margin-top:5px;">Blender · Cinema 4D · 3ds Max · Substance Painter · ComfyUI</p>
+    </div>
+
+    <script>
+    (function(){
+        var carousels = {}; // { id: { current: 0, total: N } }
+        function register(id, total) {
+            carousels[id] = { current: 0, total: total };
+        }
+        function setSlide(id, dotsId, index) {
+            var c = carousels[id];
+            if (!c) return;
+            c.current = index;
+            document.getElementById(id).style.transform = 'translateX(-' + (index * 100) + '%)';
+            var dots = document.getElementById(dotsId);
+            if (dots) {
+                var spans = dots.querySelectorAll('span');
+                for (var i = 0; i < spans.length; i++) {
+                    if (i === index) {
+                        spans[i].style.width = '22px';
+                        spans[i].style.background = '#e94560';
+                    } else {
+                        spans[i].style.width = '8px';
+                        spans[i].style.background = 'rgba(255,255,255,0.4)';
+                    }
+                }
+            }
+        }
+        window.carouselNext = function(id, total) {
+            if (!carousels[id]) register(id, total);
+            var next = (carousels[id].current + 1) % total;
+            var dotsId = id.replace('carousel', 'dots');
+            setSlide(id, dotsId, next);
+        };
+        window.carouselPrev = function(id, total) {
+            if (!carousels[id]) register(id, total);
+            var prev = (carousels[id].current - 1 + total) % total;
+            var dotsId = id.replace('carousel', 'dots');
+            setSlide(id, dotsId, prev);
+        };
+        window.carouselGo = function(id, dotsId, index, total) {
+            if (!carousels[id]) register(id, total);
+            setSlide(id, dotsId, index);
+        };
+        // Auto-play carousels
+        register('carousel1', 4);
+        register('carousel2', 4);
+        register('carousel3', 4);
+        register('carousel4', 4);
+        register('carousel5', 5);
+        register('carousel6', 4);
+        setInterval(function() {
+            window.carouselNext('carousel1', 4);
+        }, 4000);
+        setTimeout(function() {
+            setInterval(function() {
+                window.carouselNext('carousel2', 4);
+            }, 4000);
+        }, 2000);
+        setTimeout(function() {
+            setInterval(function() {
+                window.carouselNext('carousel3', 4);
+            }, 4000);
+        }, 1000);
+        setTimeout(function() {
+            setInterval(function() {
+                window.carouselNext('carousel4', 4);
+            }, 4000);
+        }, 3000);
+        setTimeout(function() {
+            setInterval(function() {
+                window.carouselNext('carousel5', 5);
+            }, 4000);
+        }, 1500);
+        setTimeout(function() {
+            setInterval(function() {
+                window.carouselNext('carousel6', 4);
+            }, 4000);
+        }, 2500);
+
+        // Taobao detail carousel
+        var taobaoCurrent = 0;
+        var taobaoTotal = 3;
+        var taobaoAutoplayTimer = null;
+
+        function updateTaobaoDots() {
+            var dots = document.querySelectorAll('#taobaoDots span');
+            for (var i = 0; i < dots.length; i++) {
+                if (i === taobaoCurrent) {
+                    dots[i].className = 'active';
+                } else {
+                    dots[i].className = '';
+                }
+            }
+        }
+
+        function taobaoGoTo(index) {
+            taobaoCurrent = (index + taobaoTotal) % taobaoTotal;
+            document.getElementById('taobaoCarousel').style.transform = 'translateX(-' + (taobaoCurrent * 100) + '%)';
+            updateTaobaoDots();
+        }
+
+        window.taobaoCarouselNext = function() {
+            taobaoGoTo(taobaoCurrent + 1);
+            resetTaobaoAutoplay();
+        };
+
+        window.taobaoCarouselPrev = function() {
+            taobaoGoTo(taobaoCurrent - 1);
+            resetTaobaoAutoplay();
+        };
+
+        window.taobaoCarouselGo = function(index) {
+            taobaoGoTo(index);
+            resetTaobaoAutoplay();
+        };
+
+        function startTaobaoAutoplay() {
+            taobaoAutoplayTimer = setInterval(function() {
+                taobaoGoTo(taobaoCurrent + 1);
+            }, 6000);
+        }
+
+        function resetTaobaoAutoplay() {
+            if (taobaoAutoplayTimer) {
+                clearInterval(taobaoAutoplayTimer);
+            }
+            startTaobaoAutoplay();
+        }
+
+        startTaobaoAutoplay();
+
+        // Pause autoplay when hovering phone screens (people interact with scroll)
+        var phoneScreens = document.querySelectorAll('.taobao-phone-screen');
+        for (var i = 0; i < phoneScreens.length; i++) {
+            phoneScreens[i].addEventListener('mouseenter', function() {
+                if (taobaoAutoplayTimer) {
+                    clearInterval(taobaoAutoplayTimer);
+                    taobaoAutoplayTimer = null;
+                }
+            });
+            phoneScreens[i].addEventListener('mouseleave', function() {
+                startTaobaoAutoplay();
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
