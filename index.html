@@ -1293,6 +1293,51 @@
         </div>
     </section>
 
+    <!-- ===== Baby Products Detail Page Design ===== -->
+    <section class="section taobao-section">
+        <h2 class="section-title">母婴用品详情页设计</h2>
+        <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 0.95em;">婴幼儿喂养 × 人体工学设计，暖心母婴产品详情页设计</p>
+        
+        <div class="taobao-carousel-wrap">
+            <div class="taobao-carousel-outer">
+                <div class="taobao-carousel-track" id="babyCarousel" style="grid-template-columns: 1fr;">
+                    <!-- Slide 1: 婴儿奶瓶款 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreenBaby1">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/01_首屏主图.png" alt="首屏主图">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/02_仿母乳奶嘴.png" alt="仿母乳奶嘴">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/03_精准刻度.png" alt="精准刻度">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/04_人体工学把手.png" alt="人体工学把手">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/05_重力球设计.png" alt="重力球设计">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/06_宽口设计.png" alt="宽口设计">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/07_全身可拆.png" alt="全身可拆">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/08_食品级重力球.png" alt="食品级重力球">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/09_安全材质.png" alt="安全材质">
+                                <img class="taobao-detail-img" src="assets/images/taobao_baby_bottle/10_精美包装.png" alt="精美包装">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">婴儿奶瓶款</span>
+                            <h3>暖萌系详情页排版</h3>
+                            <p>以儿童人体工学奶瓶为载体，采用温暖柔和的母婴视觉风格。从首屏主视觉切入，通过仿母乳奶嘴、精准刻度、人体工学把手、重力球设计等核心卖点层层递进，搭配全身可拆洗、食品级材质、精美包装等品质保障，传递安心喂养的产品理念。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>温暖母婴视觉风格</li>
+                                <li>人体工学设计呈现</li>
+                                <li>安全材质细节突出</li>
+                                <li>多维度产品卖点展示</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== Links ===== -->
     <section class="links-section">
         <h2>在线作品集</h2>
@@ -1393,123 +1438,4 @@
         }, 2500);
 
         // Taobao detail carousel
-        var taobaoCurrent = 0;
-        var taobaoTotal = 3;
-        var taobaoAutoplayTimer = null;
-
-        function updateTaobaoDots() {
-            var dots = document.querySelectorAll('#taobaoDots span');
-            for (var i = 0; i < dots.length; i++) {
-                if (i === taobaoCurrent) {
-                    dots[i].className = 'active';
-                } else {
-                    dots[i].className = '';
-                }
-            }
-        }
-
-        function taobaoGoTo(index) {
-            taobaoCurrent = (index + taobaoTotal) % taobaoTotal;
-            document.getElementById('taobaoCarousel').style.transform = 'translateX(-' + (taobaoCurrent * 100) + '%)';
-            updateTaobaoDots();
-        }
-
-        window.taobaoCarouselNext = function() {
-            taobaoGoTo(taobaoCurrent + 1);
-            resetTaobaoAutoplay();
-        };
-
-        window.taobaoCarouselPrev = function() {
-            taobaoGoTo(taobaoCurrent - 1);
-            resetTaobaoAutoplay();
-        };
-
-        window.taobaoCarouselGo = function(index) {
-            taobaoGoTo(index);
-            resetTaobaoAutoplay();
-        };
-
-        function startTaobaoAutoplay() {
-            taobaoAutoplayTimer = setInterval(function() {
-                taobaoGoTo(taobaoCurrent + 1);
-            }, 6000);
-        }
-
-        function resetTaobaoAutoplay() {
-            if (taobaoAutoplayTimer) {
-                clearInterval(taobaoAutoplayTimer);
-            }
-            startTaobaoAutoplay();
-
-        // 3C Product Detail Carousel
-        var c3cCurrent = 0;
-        var c3cTotal = 2;
-        var c3cAutoplayTimer = null;
-
-        function updateC3CDots() {
-            var dots = document.querySelectorAll('#c3cDots span');
-            for (var i = 0; i < dots.length; i++) {
-                if (i === c3cCurrent) {
-                    dots[i].className = 'active';
-                } else {
-                    dots[i].className = '';
-                }
-            }
-        }
-
-        function c3cGoTo(index) {
-            c3cCurrent = (index + c3cTotal) % c3cTotal;
-            document.getElementById('c3cCarousel').style.transform = 'translateX(-' + (c3cCurrent * 100) + '%)';
-            updateC3CDots();
-        }
-
-        window.c3cCarouselNext = function() {
-            c3cGoTo(c3cCurrent + 1);
-            resetC3CAutoplay();
-        };
-
-        window.c3cCarouselPrev = function() {
-            c3cGoTo(c3cCurrent - 1);
-            resetC3CAutoplay();
-        };
-
-        window.c3cCarouselGo = function(index) {
-            c3cGoTo(index);
-            resetC3CAutoplay();
-        };
-
-        function startC3CAutoplay() {
-            c3cAutoplayTimer = setInterval(function() {
-                c3cGoTo(c3cCurrent + 1);
-            }, 7000);
-        }
-
-        function resetC3CAutoplay() {
-            if (c3cAutoplayTimer) {
-                clearInterval(c3cAutoplayTimer);
-            }
-            startC3CAutoplay();
-        }
-
-        startC3CAutoplay();
-        }
-
-        startTaobaoAutoplay();
-
-        // Pause autoplay when hovering phone screens (people interact with scroll)
-        var phoneScreens = document.querySelectorAll('.taobao-phone-screen');
-        for (var i = 0; i < phoneScreens.length; i++) {
-            phoneScreens[i].addEventListener('mouseenter', function() {
-                if (taobaoAutoplayTimer) {
-                    clearInterval(taobaoAutoplayTimer);
-                    taobaoAutoplayTimer = null;
-                }
-            });
-            phoneScreens[i].addEventListener('mouseleave', function() {
-                startTaobaoAutoplay();
-            });
-        }
-    })();
-    </script>
-</body>
-</html>
+        var ta
