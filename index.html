@@ -1167,11 +1167,11 @@
     <!-- ===== Clothing Detail Page Design ===== -->
     <section class="section taobao-section">
         <h2 class="section-title">服装详情页设计</h2>
-        <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 0.95em;">儿童服饰 × 生活方式视觉，元气少女穿搭详情页设计</p>
+        <p style="color: rgba(255,255,255,0.5); margin-top: 16px; font-size: 0.95em;">童装 × 潮牌服饰，两款差异化服装详情页设计</p>
         
         <div class="taobao-carousel-wrap">
             <div class="taobao-carousel-outer">
-                <div class="taobao-carousel-track" id="clothingCarousel" style="grid-template-columns: 1fr;">
+                <div class="taobao-carousel-track" id="clothingCarousel">
                     <!-- Slide 1: 橙意元气套装 -->
                     <div class="taobao-slide">
                         <div class="taobao-phone-frame">
@@ -1204,6 +1204,44 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Slide 2: 数码宝贝潮牌T恤 -->
+                    <div class="taobao-slide">
+                        <div class="taobao-phone-frame">
+                            <div class="taobao-phone-notch"></div>
+                            <div class="taobao-phone-screen" id="phoneScreenClothing2">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/01_首屏主图.png" alt="首屏主图">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/02_经典图案.png" alt="经典图案">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/03_优质面料.png" alt="优质面料">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/04_细节展示.png" alt="细节展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/05_产品信息.png" alt="产品信息">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/06_尺码表.png" alt="尺码表">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/07_多种穿搭.png" alt="多种穿搭">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/08_模特展示.png" alt="模特展示">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/09_洗涤建议.png" alt="洗涤建议">
+                                <img class="taobao-detail-img" src="assets/images/taobao_clothing_v2/10_品牌收尾.png" alt="品牌收尾">
+                                <div style="height: 30px;"></div>
+                            </div>
+                            <div class="taobao-scroll-hint">&#8595; 滑动查看完整详情页</div>
+                        </div>
+                        <div class="taobao-slide-info">
+                            <span class="taobao-slide-tag">数码宝贝T恤款</span>
+                            <h3>潮牌动漫联名详情页排版</h3>
+                            <p>以数码宝贝联名印花T恤为载体，采用热血动漫潮牌视觉风格。从震撼主视觉入手，通过经典图案解析、优质面料展示、细节工艺特写、产品信息参数、尺码对照、穿搭场景、模特上身、洗护指南层层展开，最终以品牌情怀收尾，唤醒童年热血记忆。</p>
+                            <ul class="taobao-feature-list">
+                                <li>10屏完整详情页设计</li>
+                                <li>动漫潮牌视觉风格</li>
+                                <li>联名图案精细呈现</li>
+                                <li>面料工艺细节特写</li>
+                                <li>多场景穿搭效果展示</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="taobao-carousel-btn prev" onclick="clothingCarouselPrev()">&#8249;</button>
+                <button class="taobao-carousel-btn next" onclick="clothingCarouselNext()">&#8250;</button>
+                <div class="taobao-dots" id="clothingDots">
+                    <span class="active" onclick="clothingCarouselGo(0)"></span>
+                    <span onclick="clothingCarouselGo(1)"></span>
                 </div>
             </div>
         </div>
@@ -1508,6 +1546,58 @@
             }
             startTaobaoAutoplay();
         }
+
+        // Clothing Detail Carousel
+        var clothingCurrent = 0;
+        var clothingTotal = 2;
+        var clothingAutoplayTimer = null;
+
+        function updateClothingDots() {
+            var dots = document.querySelectorAll('#clothingDots span');
+            for (var i = 0; i < dots.length; i++) {
+                if (i === clothingCurrent) {
+                    dots[i].className = 'active';
+                } else {
+                    dots[i].className = '';
+                }
+            }
+        }
+
+        function clothingGoTo(index) {
+            clothingCurrent = (index + clothingTotal) % clothingTotal;
+            document.getElementById('clothingCarousel').style.transform = 'translateX(-' + (clothingCurrent * 100) + '%)';
+            updateClothingDots();
+        }
+
+        window.clothingCarouselNext = function() {
+            clothingGoTo(clothingCurrent + 1);
+            resetClothingAutoplay();
+        };
+
+        window.clothingCarouselPrev = function() {
+            clothingGoTo(clothingCurrent - 1);
+            resetClothingAutoplay();
+        };
+
+        window.clothingCarouselGo = function(index) {
+            clothingGoTo(index);
+            resetClothingAutoplay();
+        };
+
+        function startClothingAutoplay() {
+            clothingAutoplayTimer = setInterval(function() {
+                clothingGoTo(clothingCurrent + 1);
+            }, 6500);
+        }
+
+        function resetClothingAutoplay() {
+            if (clothingAutoplayTimer) {
+                clearInterval(clothingAutoplayTimer);
+            }
+            startClothingAutoplay();
+        }
+
+        startClothingAutoplay();
 
         // 3C Product Detail Carousel
         var c3cCurrent = 0;
